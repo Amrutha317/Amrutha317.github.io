@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      body {
+        background-color: rgb(125, 184, 184);
+      }
+
+      html {
+      scroll-behavior: smooth;}
+      
+      .navbar {
+        background-color: #2c3e50;
+        padding: 1rem 1rem;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 2rem;
+        color: #f1c40f;
+      }
+      .navbar-nav .nav-item .nav-link {
+        font-size: 1.3rem;
+        color: #ecf0f1 !important;
+        padding: 0.5rem 1rem;
+      }
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1c40f !important;
+      }
+     
+      .image-container {
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      /* Media queries for different screen sizes */
+      @media screen and (min-width: 768px) {
+        .image-container img {
+          max-width: 50%;
+        }
+      }
+      
+      @media screen and (min-width: 992px) {
+        .image-container img {
+          max-width: 30%;
+        }
+      }
+      
+      @media screen and (min-width: 1200px) {
+        .image-container img {
+          max-width: 20%;
+        }
+      }
+      
+      /* Hover effect for the image */
+      .image-container img:hover {
+        transform: scale(1.1);
+      }
+      
+      .col-md-4 {
+        text-align: center;
+        margin-top: 1rem;
+        background-image: url("https://cms-assets.tutsplus.com/uploads/users/30/posts/32535/preview_image/pre-glass.jpg");
+        background-repeat: no-repeat;
+      }
+      h2, h4 {
+        color: #2c3e50;
+      }
+      h3 {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+        font-weight: bold;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+      ul.list-group li {
+        color: #2c3e50;
+        font-weight: bold;
+      }
+      .card {
+        margin-top: 2rem;
+        border-color: #2c3e50;
+        border-width: 2px;
+        border-radius: 1rem;
+      }
+      .card-title {
+        color: #2c3e50;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+      
+      .card-text {
+        margin-top: 1rem;
+        color: #2c3e50;
+        font-size: 1.2rem;
+      }
+      .text-muted {
+        color: #7aaeb1;
+        font-size: 1rem;
+      }
+      p i {
+        color: #2c3e50;
+        margin-right: 0.5rem;
+        
+      }
+        .profile-img {
+          width: 7rem;
+          height: 7rem;
+        }
+        h2, h4 {
+          font-size: 1.8rem;
+        }
+        h3 {
+          font-size: 2rem;
+        }
+        .card-subtitle {
+          font-size: 1.2rem;
+          color: #55a089;
+        }
+        
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Profile</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a  class="nav-link" href="#a">Home</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" href="#b1">About</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" href="#b2">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#b4">Interests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#b5">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#b6">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid bg-secondary text-white">
+  <div class="container">
+    <h1 class="display-4">Amrutha Prakash</h1>
+    <p class="lead">AI Student</p>
+    <hr class="my-4">
+    <p>As an AI student, I am passionate about leveraging machine learning and deep learning to solve complex problems and create innovative solutions.</p>
+    <a class="btn btn-primary btn-lg" href="#b6" role="button">Contact Me</a>
+  </div>
+</div>
+</div>
+  <div class="image-container" id="a">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="PP_Amrutha.JPG" alt="Amrutha" class="img-fluid rounded-circle profile-img" style="width:600px;height:100px;" >
+        <h4>Amrutha Prakash</h4>
+        <h4>Student</h4>
+      </div>
+      
+    
+      <div class="col-md-8" id="b1">
+        <h3>About Me</h3>
+        <p class="text-center";>Hi! I'm Amrutha Prakash, a 3rd year student at Amrita School of
+          Engineering,Amritapuri. <br>I have a passion for Artificial Intelligence and technology, and I am always eager
+          to learn new skills. <br>My goal is to develop innovative and user-friendly software that solves real-world
+          problems. </p>
+        <hr>
+        <h3>🖳Skills</h3>
+        <div class="row" id="b2">
+          <div class="col-md-6">
+            <ul class="list-group">
+              <li class="list-group-item">Python  <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span></li>
+              <li class="list-group-item">Java  <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span></li>
+              <li class="list-group-item">C++  <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span></li>
+            </ul>
+          </div>
+          
+          <div class="col-md-6" id="b3">
+            <ul class="list-group">
+              <li class="list-group-item">Leadership</li>
+              <li class="list-group-item">Team Work</li>
+              <li class="list-group-item">Communication</li>
+            </ul>
+        </div>
+      </div>
+      <hr>
+
+      <h3>&#9998;Area of Interests</h3>
+ <div class="card" id="b4">
+  <div class="card-body">
+    <h4 class="card-subtitle">Computer Vision</h4>
+    <p class="card-text">Deep neural networks have achieved unprecedented success in
+      computer vision.<br> DNNs have greater capabilities for image pattern recognition and are widely used in
+      Computer Vision algorithms.</p>
+      <hr>
+      <h4 class="card-subtitle">Machine Learning</h4>
+      <p class="card-text">Machine Learning is the field of study that gives computers the
+        capability to learn without being explicitly programmed.<br> It is based on the idea that systems can learn
+        from data, identify patterns and make decisions with minimal human intervention.</p>
+  </div>
+</div>
+<hr>
+
+<h3>&#128366;Projects</h3>
+<div class="card" id="b5">
+  <div class="card-body">
+    <h5 class="card-subtitle"> Multi-View Convolutional Neural Network</h5>
+    <p class="card-text">Design and develop a MVCNN model to identifying an object from
+      multiple viewpoints.<br>
+
+      Training and testing deep compression algorithms that allows for the use of MVCNNs in resource-constrained
+      environments such as mobile and IoT devices.</p>
+    <p class="card-text"><small class="text-muted">2022 July - present</small></p>
+      <hr>
+    <h5 class="card-subtitle">Face recognition using PCA,KPCA ,LDA and 2DPCA</h5>
+    <p class="card-text">Trained and tested different algorithms to extract important
+      features from face images and represent them in a lower dimensional space, making it easier to compare and
+      classify the faces.</p>
+    <p class="card-text"><small class="text-muted">2022 July - 2022 September </small></p>
+  </div>
+</div>
+
+<h3>Contact Me</h3>
+<div class="col-md-10 " id="b6" >
+  <p>Feel free to reach out to me if you have any questions!</p>
+  <p><i class="fa fa-envelope"  ></i> amruthaprakash317@gmail.com</p>
+  <p><i class="fa fa-phone"></i>8089724860</p>
+</div>
+<!-- Footer -->
+<footer class="bg-dark py-3 text-white">
+  <div class="container">
+  </div>
+</footer>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"
+  integrity="sha384-ybXoF08+GzN7vU8N6f1D+3nq3K7ed3E9q8IaW1jtOf27mR/HcP45eOx8xGtbuIaK"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+</body>
+</html>
