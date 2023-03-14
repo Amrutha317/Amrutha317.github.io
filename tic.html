@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tic-tac-toe</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <style>
+
+    body {
+      height: 100vh;
+      background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8XV2G2An8reLN5rXt1jjWQYLv0vTT8AUYMg&usqp=CAU");
+    }
+
+   
+
+    .gameboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      margin: 50px auto;
+      width: 300px;
+      height: 300px;
+      box-shadow: #ecf0f1;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: "Raleway", sans-serif;
+      color:rgb(15, 15, 15);
+    }
+
+    .gameboard button:hover {
+      background-color: #f899e7;
+    }
+
+    .gameboard button:active {
+      background-color: #bc80eb;
+    }
+
+    html {
+      scroll-behavior: smooth;}
+      
+      .navbar {
+        background-color: #2c3e50;
+        padding: 1rem 1rem;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        font-size: 1rem;
+        color: #f1c40f;
+      }
+      .navbar-nav .nav-item .nav-link {
+        font-size: 1rem;
+        color: #ecf0f1 !important;
+        padding: 0.5rem 1rem;
+      }
+      .navbar-nav .nav-item .nav-link:hover {
+        color: #f1c40f !important;
+      }
+
+      .navbar.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .select-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+      }
+
+      .select-box{
+        height: 100vh;
+        width: 100vw;
+        background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8XV2G2An8reLN5rXt1jjWQYLv0vTT8AUYMg&usqp=CAU");
+        padding: 100px 55px 25px;
+        border-radius: 5px;
+      }
+      .select-box.hide{
+        opacity: 0;
+        pointer-events: none;
+      }
+      .select-box header{
+        font-size: 30px;
+        font-weight: 600;
+        padding-bottom: 20px;
+        border-bottom: 1px solid lightgrey;
+      }
+      .select-box .title{
+        font-size: 22px;
+        font-weight: 500;
+        margin: 20px 0;
+      }
+      .select-box .options{
+        display: flex;
+        width: 100%;
+      }
+
+      .options button{
+        width: 50%;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 10px 0;
+        border: none;
+        background: #56baed;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-left: 10px;
+      }
+      .options button:hover,
+      .btn button:hover{
+        transform: scale(0.96);
+      }
+
+      .btn button{
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 20px;
+        border: none;
+        background: #56baed;
+        border-radius: 5px;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .text1 {
+        color: white;
+        font-size: 70px;
+        font-weight: 700;
+        letter-spacing: 8px;
+        margin-bottom: 20px;
+        background: transparent;
+        position: relative;
+        animation: text 3s 1;
+        
+      }
+
+      .popup {
+        background:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8XV2G2An8reLN5rXt1jjWQYLv0vTT8AUYMg&usqp=CAU");
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+        font-size: 12vmin;
+      }
+      #new-game {
+        font-size: 0.6em;
+        padding: 0.5em 1em;
+        background-color: #0a0027;
+        color: #ffffff;
+        border-radius: 0.2em;
+        border: none;
+      }
+
+      #message {
+        color: #ffffff;
+        text-align: center;
+        font-size: 1em;
+      }
+
+      .popup.hide {
+        display: none;
+      }
+  
+      @keyframes text {
+        0% {
+          color: black;
+          margin-bottom: -40px;
+        }
+  
+        30% {
+          letter-spacing: 25px;
+          margin-bottom: -40px;
+        }
+  
+        85% {
+          letter-spacing: 8px;
+          margin-bottom: -40px;
+        }
+      }   
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Tic-Tac-Toe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a  class="nav-link" id="ng">New Game</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" id="restart">Restart</a>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" id="b1">Reset</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- select box -->
+  <div class="select-box">
+    <header style="text-align:center">
+      <span class="text1" >Tic Tac Toe</span>
+    </header>
+    <div class="content">
+      <div class="title" style="color:aliceblue;text-align : center">Choose your game!</div>
+        <div class="options">
+          <button class="playerX">Multiplayer Player</button>
+          <button class="playerO">Play with AI</button>
+        </div>
+    </div>
+  </div> 
+
+  <div class="popup hide">
+    <p id="message">Computer Wins</p>
+    <button id="new-game">New Game</button>
+</div>
+
+  <div class="gameboard">
+    <button class="cell" id="0"></button>
+    <button class="cell" id="1"></button>
+    <button class="cell" id="2"></button>
+    <button class="cell" id="3"></button>
+    <button class="cell" id="4"></button>
+    <button class="cell" id="5"></button>
+    <button class="cell" id="6"></button>
+    <button class="cell" id="7"></button>
+    <button class="cell" id="8"></button>
+  </div>
+  
+
+  
+
+<script>
+  /*start game*/
+const selectBox=document.querySelector(".select-box");
+const gameboard=document.querySelector(".gameboard");
+selectBtnX=selectBox.querySelector(".options .playerX");
+selectBtnO=selectBox.querySelector(".options .playerO");
+let btnRef = document.querySelectorAll(".cell");
+let popupRef = document.querySelector(".popup");
+let newgameBtn = document.getElementById("new-game");
+let ngBtn = document.getElementById("ng");
+let restartBtn = document.getElementById("restart");
+let msgRef = document.getElementById("message");
+const cells = document.querySelectorAll('.cell');
+let s = document.getElementById("b1");
+let un = document.getElementById("undo");
+const huPlayer = 'X';
+const aiPlayer = 'O';
+
+
+selectBtnX.onclick = () =>{
+  m=0;
+  selectBox.classList.add("hide");
+  gameboard.classList.add("show");
+}
+
+selectBtnO.onclick = () =>{
+  selectBox.classList.add("hide");
+  m=1;
+  startGame();
+  console.log("i")
+}
+const winCombos = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
+]
+
+function startGame() {
+  origBoard = Array.from(Array(9).keys());
+  for (var i = 0; i < cells.length; i++) {
+      cells[i].innerText = '';
+      cells[i].style.removeProperty('background-color');
+      cells[i].addEventListener('click', turnClick, false);
+  }
+}
+function turn(squareId, player) {
+  origBoard[squareId] = player;
+  document.getElementById(squareId).innerText = player;
+  let gameWon = checkWin(origBoard, player)
+  if (gameWon) gameOver(gameWon)
+}
+
+function turnClick(square) {
+  if (typeof origBoard[square.target.id] == 'number') {
+      turn(square.target.id, huPlayer)
+      
+      if (!checkWin(origBoard, huPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
+  }
+}
+
+function checkWin(board, player) {
+  let plays = board.reduce((a, e, i) =>
+      (e === player) ? a.concat(i) : a, []);
+  let gameWon = null;
+  for (let [index, win] of winCombos.entries()) {
+      if (win.every(elem => plays.indexOf(elem) > -1)) {
+          gameWon = { index: index, player: player };
+          break;
+      }
+  }
+  return gameWon;
+}
+
+
+function emptySquares() {
+  return origBoard.filter(s => typeof s == 'number');
+}
+
+function bestSpot() {
+  return minimax(origBoard, aiPlayer).index;
+}
+
+function gameOver(gameWon) {
+  for (let index of winCombos[gameWon.index]) {
+    document.getElementById(index).style.backgroundColor =
+        gameWon.player == huPlayer ? "blue" : "red";
+}
+  for (var i = 0; i < cells.length; i++) {
+      cells[i].removeEventListener('click', turnClick, false);
+  }
+
+  if (gameWon.player != huPlayer)
+  { console.log("m_AI")
+    winFunction("A");}
+  else{
+    console.log("X wins")
+    winFunction("X");
+  }
+  
+  
+  
+}
+function checkTie() {
+  if (emptySquares().length == 0) {
+      for (var i = 0; i < cells.length; i++) {
+          cells[i].removeEventListener('click', turnClick, false);
+      }
+      drawFunction();
+      console.log("draw k")
+      return true;
+  }
+  return false;
+}
+
+function minimax(newBoard, player) {
+  var availSpots = emptySquares();
+
+  if (checkWin(newBoard, huPlayer)) {
+      return { score: -10 };
+  } else if (checkWin(newBoard, aiPlayer)) {
+      return { score: 10 };
+  } else if (availSpots.length === 0) {
+      return { score: 0 };
+  }
+  var moves = [];
+  for (var i = 0; i < availSpots.length; i++) {
+      var move = {};
+      move.index = newBoard[availSpots[i]];
+      newBoard[availSpots[i]] = player;
+
+      if (player == aiPlayer) {
+          var result = minimax(newBoard, huPlayer);
+          move.score = result.score;
+      } else {
+          var result = minimax(newBoard, aiPlayer);
+          move.score = result.score;
+      }
+
+      newBoard[availSpots[i]] = move.index;
+
+      moves.push(move);
+  }
+
+  var bestMove;
+  if (player === aiPlayer) {
+      var bestScore = -10000;
+      for (var i = 0; i < moves.length; i++) {
+          if (moves[i].score > bestScore) {
+              bestScore = moves[i].score;
+              bestMove = i;
+          }
+      }
+  } else {
+      var bestScore = 10000;
+      for (var i = 0; i < moves.length; i++) {
+          if (moves[i].score < bestScore) {
+              bestScore = moves[i].score;
+              bestMove = i;
+          }
+      }
+  }
+
+  return moves[bestMove];
+}
+
+
+//Winning Pattern Array
+let winningPattern = [
+  [0, 1, 2],
+  [0, 3, 6],
+  [2, 5, 8],
+  [6, 7, 8],
+  [3, 4, 5],
+  [1, 4, 7],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+//Player 'X' plays first
+let xTurn = true;
+let count = 0;
+
+//Disable All Buttons
+const disableButtons = () => {
+  btnRef.forEach((element) => (element.disabled = true));
+  //enable popup
+  gameboard.classList.add("hide");
+  popupRef.classList.remove("hide");
+};
+
+//Enable all buttons (For New Game and Restart)
+const enableButtons = () => {
+  btnRef.forEach((element) => {
+    element.innerText = "";
+    element.disabled = false;
+  });
+  //disable popup
+  gameboard.classList.add("hide");
+  popupRef.classList.add("hide");
+};
+
+//This function is executed when a player wins
+const winFunction = (letter) => {
+  disableButtons();
+   if (letter == "X") {
+    msgRef.innerHTML = "&#x1F389; <br> 'X' Wins";
+  }
+
+  else if (letter == "A") {
+    msgRef.innerHTML = "&#x1F389; <br> 'AI' Wins";
+  }
+ 
+  else {
+    msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
+  }
+};
+
+//Function for draw
+const drawFunction = () => {
+  disableButtons();
+  msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";
+};
+
+
+//New Game
+newgameBtn.addEventListener("click", () => {
+  if(m==1)
+  {enableButtons();
+    startGame();}
+  else{
+  count = 0;
+  enableButtons();}
+});
+
+ngBtn.addEventListener("click", () => {
+  if(m==1)
+  {enableButtons();
+    startGame();}
+    else
+  {count = 0;
+  enableButtons();}
+});
+
+restartBtn.addEventListener("click", () => {
+  if(m==1)
+  {enableButtons();
+    startGame();}
+  else{
+  count = 0;
+  enableButtons();}
+});
+
+s.addEventListener("click", () => {
+  location.reload()
+});
+//Win Logic
+const winChecker = () => {
+  //Loop through all win patterns
+  for (let i of winningPattern) {
+    let [element1, element2, element3] = [
+      btnRef[i[0]].innerText,
+      btnRef[i[1]].innerText,
+      btnRef[i[2]].innerText,
+,
+    ];
+    //Check if elements are filled
+    //If 3 empty elements are same and would give win as would
+    if (element1 != "" && (element2 != "") & (element3 != "")) {
+      if (element1 == element2 && element2 == element3) {
+        //If all 3 buttons have same values then pass the value to winFunction
+    
+        winFunction(element1);
+      }
+    }
+  }
+};
+
+
+//Display X/O on click
+btnRef.forEach((element) => {
+  element.addEventListener("click", () => {
+    if (xTurn) {
+      xTurn = false;
+      //Display X
+      element.innerText = "X";
+      element.disabled = true;
+    } else {
+      xTurn = true;
+      //Display Y
+      element.innerText = "O";
+      element.disabled = true;
+    }
+    
+    //Increment count on each click
+    count += 1;
+    if (count == 9) {
+      drawFunction();
+    }
+    //Check for win on every click
+    if (m==0)
+    {
+    winChecker();
+    }
+  });
+});
+//Enable Buttons and disable popup on page load
+window.onload = enableButtons;
+</script>
+
+ 
+</body>
+</html>
