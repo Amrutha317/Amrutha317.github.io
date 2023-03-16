@@ -9,8 +9,70 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
     <style>
+      @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+      .slider{
+        max-width: 1100px;
+        display: flex;
+      }
+      .slider .card{
+        flex: 1;
+        height: 100%;
+        width: 80%;
+        margin: 0 10px;
+        background: #fff;
+      }
+      .slider .card .img{
+        height: 200px;
+        width: 100%;
+      }
+      .slider .card .img img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      .slider .card .content{
+        padding: 10px 20px;
+      }
+      .card .content .title{
+        font-size: 25px;
+        font-weight: 600;
+      }
+      .card .content .sub-title{
+        font-size: 20px;
+        font-weight: 600;
+        color: #e74c3c;
+        line-height: 20px;
+      }
+      .card .content p{
+        text-align: justify;
+        margin: 10px 0;
+      }
+      .card .content .btn{
+        display: block;
+        text-align: left;
+        margin: 10px 0;
+      }
+      .card .content .btn button{
+        background: #e74c3c;
+        color: #fff;
+        border: none;
+        outline: none;
+        font-size: 17px;
+        padding: 5px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .card .content .btn button:hover{
+        transform: scale(0.9);
+      }
+
+      
       body {
         background-color: rgb(236, 240, 240);
       }
@@ -124,7 +186,266 @@
         box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.2);
             
          }
+
+         .skill_bar_section * {
+          font-family: Nunito, sans-serif;
+        }
+        
+        .skill_bar_section .text-blk {
+          margin-top: 0px;
+          margin-right: 0px;
+          margin-bottom: 0px;
+          margin-left: 0px;
+          line-height: 25px;
+          font-size: 16px;
+        }
+        
+        .skill_bar_section .responsive-container-block {
+          min-height: 75px;
+          height: fit-content;
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 0px;
+          margin-right: auto;
+          margin-bottom: 0px;
+          margin-left: auto;
+          justify-content: flex-start;
+        }
+        
+        .skill_bar_section .responsive-cell-block {
+          min-height: 75px;
+        }
+        
+        .skill_bar_section .responsive-container-block.container {
+          margin-top: 50px;
+          margin-right: auto;
+          margin-bottom: 50px;
+          margin-left: auto;
+          justify-content: center;
+          max-width: 1320px;
+          overflow-x: hidden;
+          overflow-y: visible;
+        }
+        
+        .skill_bar_section .responsive-container-block.big-container {
+          padding-top: 0px;
+          padding-right: 50px;
+          padding-bottom: 0px;
+          padding-left: 50px;
+        }
+        
+        .skill_bar_section .text-blk.section-head {
+          font-size: 36px;
+          line-height: 45px;
+          font-weight: 700;
+          max-width: 580px;
+          margin-top: 0px;
+          margin-right: 0px;
+          margin-bottom: 55px;
+          margin-left: 0px;
+        }
+        
+        .skill_bar_section .text-blk.skill-name {
+          font-size: 19px;
+          line-height: 27px;
+          font-weight: 700;
+        }
+        
+        .skill_bar_section .skill-bar {
+          height: 6px;
+          background-color: #eeeeee;
+        }
+        
+        .skill_bar_section .skills {
+          margin-top: 0px;
+          margin-right: 0px;
+          margin-bottom: 55px;
+          margin-left: 0px;
+          position: relative;
+        }
+        
+        .skill_bar_section .skill-per {
+          height: 6px;
+          background-color: #7bb9ff;
+          width: 0px;
+          transition-duration: 1.3s;
+          transition-timing-function: linear;
+          transition-delay: 0s;
+          transition-property: all;
+        }
+        
+        .skill_bar_section .skills-name-box {
+          margin-top: 0px;
+          margin-right: 0px;
+          margin-bottom: 24px;
+          margin-left: 0px;
+        }
+        
+        .skill_bar_section .skill-per::after {
+          position: absolute;
+          content: attr(percentage) "%";
+          top: 0px;
+          right: 0px;
+          font-size: 20px;
+          font-weight: 700;
+        }
+        
+        .skill_bar_section .skill-per.two {
+          background-color: #5580ff;
+        }
+        
+        .skill_bar_section .skill-per.three {
+          background-color: #ff8a73;
+        }
+        
+        .skill_bar_section .skill-per.four {
+          background-color: #fed066;
+        }
+        
+        .skill_bar_section .circle {
+          max-width: 536px;
+          max-height: 536px;
+          width: 100%;
+          height: 100%;
+          background-color: #fed066;
+          border-top-left-radius: 270px;
+          border-top-right-radius: 270px;
+          border-bottom-right-radius: 270px;
+          border-bottom-left-radius: 270px;
+          position: absolute;
+          left: 25%;
+          bottom: -10%;
+        }
+        
+        .skill_bar_section .img {
+          width: 130%;
+          position: relative;
+          right: -30%;
+          box-shadow: rgba(0, 0, 0, 0.1) 6px 12px 24px;
+        }
+        
+        .skill_bar_section .right-side {
+          position: relative;
+          height: 80%;
+          display: flex;
+          align-items: center;
+        }
+        
+        .skill_bar_section .responsive-cell-block.wk-mobile-12.wk-ipadp-10.wk-tab-11.wk-desk-6 {
+          min-height: 650px;
+        }
+        
+        @media (max-width: 1024px) {
+          .skill_bar_section .img {
+            right: 0px;
+            left: 0px;
+            width: 100%;
+          }
+        
+          .skill_bar_section .circle {
+            left: -10%;
+            bottom: -15%;
+            right: 0px;
+          }
+        
+          .skill_bar_section .responsive-cell-block.wk-mobile-12.wk-ipadp-9.wk-tab-10.wk-desk-6.left-one {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 60px;
+            margin-left: 0px;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .skill_bar_section .responsive-cell-block.wk-mobile-12.wk-ipadp-9.wk-tab-10.wk-desk-6.left-one {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 40px;
+            margin-left: 0px;
+          }
+        
+          .skill_bar_section .responsive-cell-block.wk-mobile-12.wk-tab-11.wk-desk-6.wk-ipadp-10 {
+            min-height: 450px;
+          }
+        
+          .skill_bar_section .text-blk.skill-name {
+            font-size: 18px;
+          }
+        
+          .skill_bar_section .text-blk.section-head {
+            font-size: 30px;
+            line-height: 40px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 40px;
+            margin-left: 0px;
+          }
+        }
+        
+        @media (max-width: 500px) {
+          .skill_bar_section .responsive-container-block.big-container {
+            padding-top: 0px;
+            padding-right: 20px;
+            padding-bottom: 0px;
+            padding-left: 20px;
+          }
+        
+        
+          .skill_bar_section .skills-name-box {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 16px;
+            margin-left: 0px;
+          }
+        
+          .skill_bar_section .skills {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 40px;
+            margin-left: 0px;
+          }
+        }
          
+        .new_skills .responsive-container-block.imgContainer {
+          width: 45%;
+          position: relative;
+          height: 700px;
+          padding-top: 0px;
+          padding-right: 0px;
+          padding-bottom: 0px;
+          padding-left: 0px;
+        }
+
+        .new_skills .pinkBG {
+          width: 90%;
+          height: 650px;
+          right: auto;
+          position: absolute;
+          top: auto;
+          background-color: #ff7676;
+          left: 0px;
+          bottom: 0px;
+        }
+        
+        .new_skills * {
+          font-family: Nunito, sans-serif;
+        }
+        
+        .new_skills .bigImg {
+          height: 660px;
+          width: 90%;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+          left: auto;
+          object-fit: cover;
+          top: 0px;
+        }
+
+        .new_skills .responsive-container-block.imgContainer {
+          height: 550px;
+        }
           
         
   </style>
@@ -161,7 +482,7 @@
     </div>
   </nav>
 <!-- Jumbotron -->
-<div class="jumbotron jumbotron-fluid bg-secondary text-white">
+<div class="jumbotron jumbotron-fluid  text-white">
   <div class="container">
     <h1 class="display-4">Amrutha Prakash</h1>
     <p class="lead">AI Student</p>
@@ -178,37 +499,55 @@
           Engineering,Amritapuri. <br>I have a passion for Artificial Intelligence and technology, and I am always eager
           to learn new skills. <br>My goal is to develop innovative and user-friendly software that solves real-world
           problems. </p>
-        <hr>
+        
     </div>
+    <hr>
     <div class="col-6 col-md-4 text-center">
         <div class="image-container img">
-            <img src="https://user-images.githubusercontent.com/84720881/223355697-e3897f7c-4894-41e6-b2f9-d23f86055e0c.jpg" alt="Amrutha" class="img-fluid rounded-circle profile-img" style="width:200px;height:200px;">
+            <img src="https://user-images.githubusercontent.com/84720881/223355697-e3897f7c-4894-41e6-b2f9-d23f86055e0c.jpg" alt="Amrutha" class="img-fluid  profile-img" style="width:200px;height:200px;">
         </div> 
     </div>
     <div class="container">
         <h3>Skills</h3>
-        <div class="row" id="b2">
-            <div class="col-md-6">
-              <ul class="list-group">
-                <li class="list-group-item">
-                    <img src="data:image/png;base64,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" alt="Avatar" style="width: 40%">
-                </li>
-                <li class="list-group-item">
-                    <img src="https://www.devopsschool.com/blog/wp-content/uploads/2022/03/java_logo_icon_168609.png" alt="Avatar" style="width:40%">
-                </li>
-              </ul>
-            </div>
-            
-            <div class="col-md-6" id="b3">
-              <ul class="list-group">
-                <li class="list-group-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png" alt="Avatar" style="width:20%">
-                </li>
-                <li class="list-group-item">
-                    <img src="data:image/png;base64,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" alt="Avatar" style="width:40%">
-                </li>
-              </ul>
-          </div>
+
+        <div class="skill_bar_section">
+
+                <div class="skills">
+                  <div class="skills-name-box">
+                    <p class="text-blk skill-name">Python</p>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-per" percentage="87"></div>
+                  </div>
+                </div>
+
+                <div class="skills">
+                  <div class="skills-name-box">
+                    <p class="text-blk skill-name">Java</p>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-per" percentage="81"></div>
+                  </div>
+                </div>
+
+                <div class="skills">
+                  <div class="skills-name-box">
+                    <p class="text-blk skill-name">C++</p>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-per" percentage="61"></div>
+                  </div>
+                </div>
+
+                <div class="skills">
+                  <div class="skills-name-box">
+                    <p class="text-blk skill-name">SQL</p>
+                  </div>
+                  <div class="skill-bar">
+                    <div class="skill-per" percentage="71"></div>
+                  </div>
+                </div>
+
         </div>
         <hr>
         <h3>Area of Interests</h3>
@@ -234,6 +573,41 @@
                     </div>
                 </div>
         </div>
+        <hr>
+        
+        <h3>Web Based Projects</h3>
+        <div class="slider owl-carousel">
+          <div class="card">
+            <div class="img"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce44cf145197895.629b268b5a47d.gif" alt="TTT"></div>
+                <div class="content">
+                        <div class="title">Tic Tac Toe</div>
+                        <div class="sub-title">Game</div>
+                          <p>Tic-tac-toe is a game in which two players take turns in drawing either an ` O' or an ` X' in one square of a grid consisting of nine squares. The winner is the first player to get three of the same symbols in a row.</p>
+                          <a href="https://Amrutha317.github.io/tictactoe.html">
+                          <div class="btn"><button>Read more</button> </div>
+                          </a>
+                </div>
+          </div>
+          <div class="card">
+            <div class="img"><img src="https://www.popphoto.com/uploads/2022/04/28/IMG_3486-scaled.jpg?auto=webp&width=1440&height=1080" alt="Gallery"></div>
+                <div class="content">
+                  <div class="title">Image processing on Photo Album</div>
+                  <div class="sub-title">Image Gallery</div>
+                      <p>Photo Album is developed using Bootstrap and incorporating RWD principles.It supports different image processing operations which can be triggered by button-clicks, drop-downs etc.</p>
+                      <div class="btn"><button>Read more</button></div>
+                </div>
+          </div>
+          <div class="card">
+            <div class="img"><img src="https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/ITKPXAE2DJH7POAXUCRVYGATUY.gif" alt="Wordle"></div>
+            <div class="content">
+              <div class="title">Wordle</div>
+              <div class="sub-title">Word game</div>
+                  <p>The goal is to guess a mystery five-letter word in as few tries as possible. After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+                  <div class="btn"><button>Read more</button></div>
+            </div>
+          </div>
+        </div>
+
         <hr>
 
         <h3>Projects</h3>
@@ -272,11 +646,37 @@
             <div class="col-md-10 " id="b6" >
                 <p>Feel free to reach out to me if you have any questions!</p>
                 <p><i class="fa fa-envelope"  ></i> amruthaprakash317@gmail.com</p>
-                <p><i class="fa fa-phone"></i>808-978-382</p>
+                <p><i class="fa fa-phone" ></i> 808-978-382</p>
             </div>
 <!-- Footer -->
 <footer class="bg-dark py-3 text-white"></footer>
-    </div>
+<script>
+  $(".slider").owlCarousel({
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 1500, //2000ms = 2s;
+    autoplayHoverPause: true,
+  });
+
+  
+    $(".skill-per").each(function() {
+      var $this = $(this);
+      var percentage = $this.attr('percentage');
+      $this.css("width", percentage + "%");
+      $({
+        animatedValue: 0
+      }).animate({
+        animatedValue: percentage
+      }, {
+        duration: 1300,
+        step: function() {
+          $this.attr("percentage", Math.floor(this.animatedValue));
+        }
+      });
+    });
+
+</script>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
