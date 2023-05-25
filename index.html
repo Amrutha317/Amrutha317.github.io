@@ -66,7 +66,7 @@
         padding: 5px 8px;
         border-radius: 5px;
         cursor: pointer;
-        transition: 0.2s;
+        transition: 0.1s;
       }
       .card .content .btn button:hover{
         transform: scale(0.9);
@@ -74,7 +74,7 @@
 
       
       body {
-        background-color: rgb(236, 240, 240);
+        background-color: rgb(2, 2, 2);
       }
 
       html {
@@ -135,19 +135,19 @@
       }
       
      
-      h2, h4 {
-        color: #2c3e50;
+      h2, h4  {
+        color: #eeeff0;
       }
       h3 {
         margin-top: 3rem;
         margin-bottom: 1rem;
-        color: #2c3e50;
+        color: #eaedf0;
         font-weight: bold;
         font-size: 1.5rem;
         text-align: center;
       }
       ul.list-group li {
-        color: #2c3e50;
+        color: #eff1f4;
         font-weight: bold;
       }
 
@@ -159,7 +159,7 @@
     .card {
             display: flex;
             flex-direction: column;
-            border: 1px solid #dadada;
+            border: 1px solid #edeaea;
             box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
             transition: 0.2s;
             width: 50%;
@@ -167,7 +167,7 @@
             
         }
     .card:hover {
-            box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 8px 8px 16px 0 rgb(235, 230, 230);
         }
 
     .test {
@@ -335,6 +335,31 @@
         .skill_bar_section .responsive-cell-block.wk-mobile-12.wk-ipadp-10.wk-tab-11.wk-desk-6 {
           min-height: 650px;
         }
+
+        .typewriter {
+          color: #fff;
+          font-family: monospace;
+          overflow: hidden; /* Ensures the content is not revealed until the animation */
+          border-right: .15em solid orange; /* The typwriter cursor */
+          white-space: nowrap; /* Keeps the content on a single line */
+          margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+          letter-spacing: .15em; /* Adjust as needed */
+          animation: 
+            typing 3.5s steps(30, end),
+            blink-caret .5s step-end infinite;
+        }
+        
+        /* The typing effect */
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+        
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: orange }
+        }
         
         @media (max-width: 1024px) {
           .skill_bar_section .img {
@@ -484,10 +509,10 @@
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid  text-white">
   <div class="container">
-    <h1 class="display-4">Amrutha Prakash</h1>
+    <h1 class="typewriter" ,class="display-4">Amrutha Prakash</h1>
     <p class="lead">AI Student</p>
     <hr class="my-4">
-    <p>As an AI student, I am passionate about leveraging machine learning and deep learning to solve complex problems and create innovative solutions.</p>
+    <p >As an AI student, I am passionate about leveraging machine learning and deep learning to solve complex problems and create innovative solutions.</p>
     <a class="btn btn-primary btn-lg" href="#b6" role="button">Contact Me</a>
   </div>
 </div>
@@ -495,11 +520,12 @@
 <div class="row">
     <div class="col-12 col-md-8">
         <h3>About Me</h3>
-        <p class="text-center";>Hi! I'm Amrutha Prakash, a 3rd year student at Amrita School of
+        <div class="text-center">
+        <p style="color: white";>Hi! I'm Amrutha Prakash, a 3rd year student at Amrita School of
           Engineering,Amritapuri. <br>I have a passion for Artificial Intelligence and technology, and I am always eager
           to learn new skills. <br>My goal is to develop innovative and user-friendly software that solves real-world
           problems. </p>
-        
+        </div>  
     </div>
     <hr>
     <div class="col-6 col-md-4 text-center">
@@ -514,67 +540,43 @@
 
                 <div class="skills">
                   <div class="skills-name-box">
-                    <p class="text-blk skill-name">Python</p>
+                    <p class="text-blk skill-name" , style="color: white"; >Python</p>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-per" percentage="87"></div>
+                    <div  style="color: white"; class="skill-per", percentage="87"></div>
                   </div>
                 </div>
 
                 <div class="skills">
                   <div class="skills-name-box">
-                    <p class="text-blk skill-name">Java</p>
+                    <p class="text-blk skill-name" ,  style="color: white";>Java</p>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-per three" percentage="81"></div>
+                    <div  style="color: white"; class="skill-per three , " percentage="81"></div>
                   </div>
                 </div>
 
                 <div class="skills">
                   <div class="skills-name-box">
-                    <p class="text-blk skill-name">C++</p>
+                    <p class="text-blk skill-name" ,  style="color: white";>C++</p>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-per two" percentage="61"></div>
+                    <div  style="color: white" , class="skill-per two", percentage="61"></div>
                   </div>
                 </div>
 
                 <div class="skills">
                   <div class="skills-name-box">
-                    <p class="text-blk skill-name">SQL</p>
+                    <p class="text-blk skill-name",  style="color: white";>SQL</p>
                   </div>
                   <div class="skill-bar">
-                    <div class="skill-per four" percentage="71"></div>
+                    <div  style="color: white"; class="skill-per four" percentage="71"></div>
                   </div>
                 </div>
 
         </div>
-        <hr>
-        <h3>Area of Interests</h3>
-            <div class="test">
-                <div class="card" id="b4">
-                    <div class="card-body">
-                        <h4 class="card-subtitle text-center">Computer Vision</h4>
-                        <img src="https://www.synergiafoundation.org/sites/default/files/research-home-areas-computer-vision-407-ud%402X.jpg" alt="Avatar" style="width:100%">
-                        <p  class="card-text text-center">Deep neural networks have achieved unprecedented success in
-                        computer vision.<br> DNNs have greater capabilities for image pattern recognition and are widely used in
-                        Computer Vision algorithms.</p>
-                    </div>
-                </div>
-
-                <div class="card" >
-                    
-                    <div class="card-body">
-                        <h4 class="card-subtitle text-center">Machine Learning</h4>
-                        <img src="https://www.analyticsinsight.net/wp-content/uploads/2021/08/Top-Companies-Using-Machine-Learning-in-a-Profitable-Way.jpg" alt="Avatar" style="width:100%">
-                        <p class="card-text text-center">Machine Learning is the field of study that gives computers the
-                            capability to learn without being explicitly programmed.<br> It is based on the idea that systems can learn
-                            from data, identify patterns and make decisions with minimal human intervention.</p>
-                    </div>
-                </div>
-        </div>
-        <hr>
         
+      
         <h3>Web Based Projects</h3>
         <div class="slider owl-carousel">
           <div class="card">
@@ -614,6 +616,33 @@
 
         <hr>
 
+        <hr>
+        <h3>Area of Interests</h3>
+            <div class="test">
+              
+                <div class="card" id="b4">
+                    <div class="card-body">
+                        <h4 class="card-subtitle text-center", style="color: black";>Computer Vision</h4>
+                        <img src="https://www.synergiafoundation.org/sites/default/files/research-home-areas-computer-vision-407-ud%402X.jpg" alt="Avatar" style="width:100%">
+                        <p  class="card-text text-center">Deep neural networks have achieved unprecedented success in
+                        computer vision.<br> DNNs have greater capabilities for image pattern recognition and are widely used in
+                        Computer Vision algorithms.</p>
+                    </div>
+                </div>
+
+                <div class="card" >
+                    
+                    <div class="card-body">
+                        <h4 class="card-subtitle text-center", style="color: black">Machine Learning</h4>
+                        <img src="https://www.analyticsinsight.net/wp-content/uploads/2021/08/Top-Companies-Using-Machine-Learning-in-a-Profitable-Way.jpg" alt="Avatar" style="width:100%">
+                        <p class="card-text text-center">Machine Learning is the field of study that gives computers the
+                            capability to learn without being explicitly programmed.<br> It is based on the idea that systems can learn
+                            from data, identify patterns and make decisions with minimal human intervention.</p>
+                    </div>
+                </div>
+        </div>
+        <hr>
+
         <h3>Projects</h3>
         <div class="test">
             <div class="card" id="b5">
@@ -648,9 +677,9 @@
 
         <h3>Contact Me</h3>
             <div class="col-md-10 " id="b6" >
-                <p>Feel free to reach out to me if you have any questions!</p>
-                <p><i class="fa fa-envelope"  ></i> amruthaprakash317@gmail.com</p>
-                <p><i class="fa fa-phone" ></i> 808-978-382</p>
+                <p  style="color: white";>Feel free to reach out to me if you have any questions!</p>
+                <p  style="color: white";><i class="fa fa-envelope"  ></i> amruthaprakash317@gmail.com</p>
+                <p  style="color: white";><i class="fa fa-phone" ></i> 808-978-382</p>
             </div>
 <!-- Footer -->
 <footer class="bg-dark py-3 text-white"></footer>
